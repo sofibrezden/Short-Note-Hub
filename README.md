@@ -45,10 +45,13 @@ To run the Short Note Hub locally, follow these steps:
 + **Start the Server:**
 
         python manage.py runserver
++ **Start Web Server:**
+
+        npm start
 
 + **Access the Application:**
     
-    Open your web browser and go to http://localhost:8000 to interact with the Short Note Hub.
+    Open your web browser and go to http://localhost:3000 to interact with the Short Note Hub.
 
 
 
@@ -58,11 +61,49 @@ To run the Short Note Hub locally, follow these steps:
 
 Example of using:
 
-    http://127.0.0.1:8000
+    http://127.0.0.1:3000
 
 
 <div align="center">
   <img src="images/img.png" alt="Start page">
+</div>
+
+Example of using:
+
+    http://127.0.0.1:3000/login/
+
+
+<div align="center">
+  <img src="images/img_3.png" alt="Start page">
+</div>
+
+
+Example of using:
+
+    http://127.0.0.1:3000/register/
+
+
+<div align="center">
+  <img src="images/img_4.png" alt="Start page">
+</div>
+
+
+Example of using:
+
+    http://localhost:3000/share/
+
+
+<div align="center">
+  <img src="images/img_1.png" alt="Start page">
+</div>
+
+Example of using:
+
+    http://localhost:3000/statistics/
+
+
+<div align="center">
+  <img src="images/img_2.png" alt="Start page">
 </div>
 
 **User Authentication**
@@ -88,6 +129,6 @@ Example of using:
 - `/admin/`: Admin panel is accessible at /admin/, providing a centralized interface for managing the application.
 
 
-This example assumes that your Django development server is running locally on http://127.0.0.1:8000/. 
+This example assumes that your Django development server is running locally on http://127.0.0.1:3000/. 
 Make sure to adjust the URLs accordingly if your setup is different.
 
