@@ -35,7 +35,11 @@ class Note(models.Model):
         return f'{self.user.username} Note'
 
     def save(self, *args, **kwargs):
-        super().save(*args, **kwargs)
+        if not self.id:
+            super().save(*args, **kwargs)
+            self.notes_id = self.id
+        else:
+            super().save(*args, **kwargs)
         shared_access_list = SharedAccess.objects.filter(note=self)
         for shared_access in shared_access_list:
             shared_access.update_last_edit()
