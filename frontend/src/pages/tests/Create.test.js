@@ -2,7 +2,7 @@ import React from 'react';
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import Cookies from 'js-cookie';
-import Create from './Create';
+import Create from '../Create/Create';
 
 jest.mock('react-router-dom', () => ({
   useNavigate: jest.fn(),

@@ -1,8 +1,8 @@
 import React from 'react';
 import {render, fireEvent, waitFor, screen} from '@testing-library/react';
-import SignUp from './SignUp';
+import SignUp from '../SignUp/SignUp';
 import {MemoryRouter} from "react-router-dom";
-import '@testing-library/jest-dom/extend-expect'; // Додайте цей імпорт для розширення очікуваних методів Jest
+import '@testing-library/jest-dom/extend-expect';
 
 describe('Create Component', () => {
     test('renders registration form', () => {

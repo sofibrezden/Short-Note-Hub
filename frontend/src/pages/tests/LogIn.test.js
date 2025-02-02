@@ -1,7 +1,7 @@
 import React from 'react';
 import {render, fireEvent, waitFor, screen} from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect'; // for better expect assertions
-import LogIn from './LogIn';
+import LogIn from '../LogIn/Login';
 import {MemoryRouter} from "react-router-dom";
 
 

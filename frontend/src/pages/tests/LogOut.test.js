@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, fireEvent, waitFor } from '@testing-library/react';
-import LogOut from './LogOut';
+import LogOut from '../LogOut/Logout';
 import '@testing-library/jest-dom/extend-expect';
 
 describe('LogOut component', () => {
