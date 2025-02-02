@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, fireEvent, waitFor, screen } from '@testing-library/react';
-import Share from './Share';
+import Share from '../Share/Share';
 import {useNavigate} from 'react-router-dom';
 import Cookies from 'js-cookie';
 import '@testing-library/jest-dom/extend-expect';
