@@ -25,7 +25,7 @@ To run the Short Note Hub locally, follow these steps:
 
 + **Clone the Repository:**:
 
-        git clone https://github.com/your-username/short-note-hub.git
+        git clone https://github.com/sofibrezden/Short-Note-Hub.git
         cd short-note-hub
       
 + **Create a virtual environment to install dependencies in and activate it:**
