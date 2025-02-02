@@ -1,0 +1,136 @@
+.form_title {
+    color: #653cb6;
+    padding-bottom: 20px;
+    font-size: 30px;
+}
+
+.form_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+    height: calc(100vh - 60px);
+    position: relative;
+}
+
+.share-form {
+    padding-bottom: 5%;
+    display: flex;
+    flex-direction: column;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    padding: 30px;
+    border-radius: 10px;
+    position: absolute;
+    left: 940px;
+}
+
+.share-form textarea,
+.share-form select {
+    margin-bottom: 15px;
+    border: 2px solid #653cb6;
+    border-radius: 10px;
+    width: 309px;
+    height: 40px;
+    padding: 0px 5px;
+    color: #653cb6;
+}
+
+.share-form label {
+    font-size: 14px;
+    line-height: 19.1px;
+    text-align: left;
+    color: #653cb6;
+    font-weight: 600;
+}
+
+.share-form input[type="submit"] {
+    background-color: #653cb6;
+    color: white;
+    font-size: 20px;
+}
+
+.share-form textarea:focus,
+.share-form textarea:active {
+    border: 2px solid #653cb6;
+    outline: none;
+}
+
+.share-image {
+    position: absolute;
+    left: 200px;
+    top: 60px;
+    width: 450px;
+    height: 540px;
+    border-radius: 35px 35px 0px 45px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    object-fit: cover;
+}
+
+.star_share {
+    color: transparent;
+    background-clip: text;
+    background-image: repeating-linear-gradient(-90deg, #653cb6, #5b8cda 4px, white 4px, white 8px);
+    transform: rotate(90deg);
+    font-size: 100px;
+    position: absolute;
+    right: 500px;
+    top: 35px;
+    opacity: 0.8;
+}
+
+.rocket {
+    color: transparent;
+    background-clip: text;
+    background-image: repeating-linear-gradient(-60deg, #653cb6, #3C6BB6 4px, white 4px, white 8px);
+    transform: rotate(-30deg);
+    font-size: 130px;
+    position: absolute;
+    right: 620px;
+    bottom: 30px;
+    opacity: 0.8;
+}
+
+.share-form textarea {
+    margin-bottom: 15px;
+}
+
+.share-form textarea:focus,
+.share-form textarea:active {
+    border: 2px solid #653CB6FF;
+    outline: none;
+}
+
+.share-form select {
+    margin-bottom: 40px;
+}
+
+.share-form select:focus,
+.share-form select:active {
+    border: 2px solid #653CB6FF;
+    outline: none;
+}
+
+.share-form input[type="submit"] {
+    left: 50%;
+    transform: translateX(-50%);
+    animation: 0.8s ease infinite alternate running shimmer;
+    background: linear-gradient(90deg, #1c82e2 0%, #6a6cec 30%, #3032bb 85%);
+    border: none;
+    color: #e1e6ef;
+    border-radius: 8px;
+    box-shadow: -2px -2px 10px rgba(86, 71, 255, 0.5), 2px 2px 10px rgba(0, 8, 255, 0.5);
+    cursor: pointer;
+    width: 200px;
+    height: 50px;
+    overflow: hidden;
+    position: relative;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+@keyframes shimmer {
+    to {
+        background-size: 100% 100%;
+        box-shadow: -2px -2px 6px rgba(29, 13, 208, 0.5), 2px 2px 6px rgba(144, 148, 255, 0.5);
+    }
+}

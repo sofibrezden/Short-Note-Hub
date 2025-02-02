@@ -12,9 +12,10 @@ body {
     border-radius: 5px;
     margin: 10px 0;
 }
+
 .note h3 {
-    font-size: 26px; /* Збільшуємо розмір заголовку */
-    font-weight: bold; /* Робимо заголовок жирним */
+    font-size: 26px;
+    font-weight: bold;
 
 }
 

@@ -1,0 +1,192 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&family=Raleway:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+
+.sect {
+    max-width: 560px;
+    width: 100%;
+    margin: 100px auto 20px;
+    background-color: #fff;
+    padding: 25px 30px;
+    left: 510px;
+    border-radius: 5px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+}
+
+
+.sect h2 {
+    color: #3C6BB6;
+    font-size: 25px;
+    font-weight: bold;
+    text-align: center;
+}
+
+h2:hover {
+    color: linear-gradient(135deg, #196191, #9b59b6);
+}
+
+.input-label {
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+input, select, textarea {
+    background-color: #FFFFFF;
+    border: 1px solid lightgray;
+    border-radius: 3px;
+    box-shadow: inset 1px 1px 3px 0 rgba(101, 200, 249, 0.1);
+    height: 35px;
+    padding: 10px;
+    transition: border-color 0.5s ease;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+input:active, input:focus, textarea:active, textarea:focus {
+    border: 1px solid #b97be2;
+    outline: none;
+}
+
+textarea {
+    height: 100px;
+}
+
+.sect button[type="submit"] {
+    left: 50%;
+    transform: translateX(-50%);
+    animation: 0.8s ease infinite alternate running shimmer;
+    background: linear-gradient(90deg, #1c82e2 0%, #6a6cec 30%, #3032bb 85%);
+    background-size: 200% 100%;
+    border: none;
+    display: inline-block;
+    border-radius: 8px;
+    box-shadow: -2px -2px 10px rgba(86, 71, 255, 0.5), 2px 2px 10px rgba(0, 8, 255, 0.5);
+    color: #ffffff;
+    cursor: pointer;
+    font-family: "Inter", sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 20px;
+    width: 200px;
+    height: 50px;
+    overflow: hidden;
+    position: relative;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+@keyframes shimmer {
+    to {
+        background-size: 100% 100%;
+        box-shadow: -2px -2px 6px rgba(29, 13, 208, 0.5), 2px 2px 6px rgba(144, 148, 255, 0.5);
+    }
+}
+
+@media (max-width: 584px) {
+    .sect {
+        max-width: 90%;
+    }
+
+    .user-details .input-box {
+        margin-bottom: 15px;
+        width: 100%;
+    }
+
+    .category {
+        width: 100%;
+    }
+
+    .content .user-details {
+        max-height: 300px;
+        overflow-y: scroll;
+    }
+
+    .user-details::-webkit-scrollbar {
+        width: 5px;
+    }
+}
+
+@media (max-width: 459px) {
+    .sect {
+        max-width: 90%;
+        margin: 100px auto 10px;
+        left: 50px;
+    }
+
+    .sect .content .category {
+        flex-direction: column;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .sect {
+        max-width: 90%;
+        left: 50px;
+    }
+
+    header nav ul {
+        font-size: 0.6rem;
+    }
+
+    header nav ul li {
+        margin: 0.5rem;
+    }
+}
+
+/* Для екранів з шириною до 584px */
+@media (max-width: 584px) {
+    .sect {
+        max-width: 90%;
+        left: 50px;
+    }
+
+    .user-details .input-box {
+        margin-bottom: 15px;
+        width: 100%;
+    }
+
+    .category {
+        width: 100%;
+    }
+
+    .content .user-details {
+        max-height: 300px;
+        overflow-y: scroll;
+    }
+
+    .user-details::-webkit-scrollbar {
+        width: 5px;
+    }
+}
+
+/* Для екранів з шириною до 459px */
+@media (max-width: 459px) {
+    .sect .content .category {
+        flex-direction: column;
+    }
+}
+
+/* Тільки для екранів з максимальною шириною 600px */
+@media only screen and (max-width: 600px) {
+    header nav ul {
+        font-size: 0.6rem;
+    }
+
+    header nav ul li {
+        margin: 0.5rem;
+    }
+}
+
+.rocket_create {
+    color: transparent;
+    background-clip: text;
+    background-image: repeating-linear-gradient(-60deg, #653cb6, #3C6BB6 4px, white 4px, white 8px);
+    transform: rotate(-30deg);
+    font-size: 80px;
+    position: absolute;
+    right: 970px;
+    bottom: 460px;
+    z-index: 1;
+    opacity: 0.8;
+}
