@@ -1,48 +1,88 @@
-import React, { useState } from 'react';
-import axios from 'axios';
+import {useEffect, useState} from "react";
+import Cookies from "js-cookie";
+import "./Statistics.css"
 
-const ShareNotePage = ({ noteId }) => {
-  const [username, setUsername] = useState('');
-  const [error, setError] = useState('');
-  const [successMessage, setSuccessMessage] = useState('');
+function formatDate(date) {
+    const options = {year: 'numeric', month: 'long', day: 'numeric'};
+    return date.toLocaleDateString('en-US', options);
+}
 
-  const handleInputChange = (event) => {
-    setUsername(event.target.value);
-  };
+function Statistics() {
+    const [list, setList] = useState([]);
+    const user_id = Cookies.get("user_id");
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    setError('');
-    setSuccessMessage('');
+    const getData = async () => {
+        const data = await fetch(
+            "http://127.0.0.1:8000/notes/" + user_id,
+            {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            }
+        ).then((data) => data.json());
+        setList(JSON.parse(data.data)?.map((item) => item.fields) ?? []);
+    };
 
-    axios.post(`/notes/${noteId}/share/`, { username })
-      .then((response) => {
-        setSuccessMessage(response.data.message);
-      })
-      .catch((error) => {
-        setError(error.response.data.error);
-      });
-  };
+    useEffect(() => {
+        getData();
+    }, []);
 
-  return (
-    <div>
-      <h2>Share Note</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="username">Username:</label>
-          <input
-            type="text"
-            id="username"
-            value={username}
-            onChange={handleInputChange}
-          />
-        </div>
-        {error && <p style={{ color: 'red' }}>{error}</p>}
-        {successMessage && <p style={{ color: 'green' }}>{successMessage}</p>}
-        <button type="submit">Share</button>
-      </form>
-    </div>
-  );
-};
+    // console.log(list);
 
-export default ShareNotePage;
+    // Створюємо об'єкт Map для групування нотаток за датою
+    const groupedNotes = new Map();
+    list.forEach(note => {
+        const date = new Date(note.created_at);
+        const formattedDate = formatDate(date);
+        if (!groupedNotes.has(formattedDate)) {
+            groupedNotes.set(formattedDate, []);
+        }
+        groupedNotes.get(formattedDate).push(note);
+    });
+
+    return (
+
+        <>
+            <div className="note-container">
+                <span className="star left"></span>
+                <span className="star right"></span>
+                <span className="star right3"></span>
+                <span className="home_circle"></span>
+                <span className="home_circle left"></span>
+                <span className="star right2"></span>
+                {[...groupedNotes].map(([date, notes]) => (
+                    <div key={date} style={{display: 'flex', flexDirection: 'column', gap: '20px'}}>
+                        <h2>{date}</h2>
+                        {notes.map((note, index) => {
+                            if (!note.title || !note.content) {
+                                // Handle null or undefined values, or skip rendering for such notes
+                                return null;
+                            }
+                            const truncatedTitle = note.title.length > 20 ? `${note.title.slice(0, 20)}...` : note.title;
+                            const truncatedContent = note.content.length > 70 ? `${note.content.substring(0, 70)}...` : note.content;
+                            const backgroundColor = index % 2 === 0 ? '#fff' : '#f5edff'; // Alternating colors
+                            return (
+                                <div key={`${date}-${index}`} className="note-block" style={{
+                                    padding: '15px',
+                                    borderRadius: '8px',
+                                    backgroundColor
+                                }}>
+                                    <h3>{truncatedTitle}</h3>
+                                    <p>{truncatedContent}</p>
+                                </div>
+                            );
+                        })}
+
+                    </div>
+                ))}
+            </div>
+
+        </>
+    );
+
+
+}
+
+
+export default Statistics;

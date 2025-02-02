@@ -9,6 +9,9 @@ import Home from "./pages/Home/Home";
 import Notes from "./pages/Notes/Notes";
 import Logout from "./pages/LogOut/Logout";
 import logo from "./images/logo.png"
+import Create from "./pages/Create/Create";
+import Statistics from "./pages/Statistics/Statistics";
+import Share from "./pages/Share/Share";
 
 function App() {
     const [userId, setUserId] = useState(Cookies.get("user_id"));
@@ -34,7 +37,10 @@ function App() {
                         {userId ? (
                             <>
                                 <li><a href="/notes/">Notes</a></li>
+                                <li><a href="/statistics/">Statistics</a></li>
+                                <li><a href="/share/">Share note</a></li>
                                 <li><a href="/logout/">Log Out</a></li>
+
                             </>
                         ) : (
                             <>
@@ -51,8 +57,11 @@ function App() {
 
                 <Route path="/" element={<Home/>}/>
                 <Route path="/login" element={<LogIn onLogin={onLogin}/>}/>
-                <Route path="/logout/" element={<Logout logOut = {logOut}/>} />
+                <Route path="/statistics/" element={<Statistics/>}/>
+                <Route path="/logout/" element={<Logout logOut={logOut}/>}/>
                 <Route path="/register" element={<SignUp/>}/>
+                <Route path="/share/" element={<Share/>}/>
+                <Route path="/create_note/" element={<Create/>}/>
                 <Route path="/notes/" element={<Notes/>}/>
 
             </Routes>
