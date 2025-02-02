@@ -1,9 +1,7 @@
 import json
-
 from django.contrib.auth.forms import AuthenticationForm
 from django.http import Http404, HttpResponseBadRequest
 from django.utils import timezone
-from django.views.decorators.csrf import csrf_protect
 from rest_framework.generics import get_object_or_404
 from .forms import NoteForm, ShareAccessForm
 from django.contrib.auth.decorators import login_required
@@ -11,13 +9,10 @@ from .models import Note, SharedAccess
 from django.shortcuts import render, redirect
 from django.contrib.auth import logout
 from django.contrib import messages
-from django.http import JsonResponse
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login
 from django.core.serializers import serialize
-
 from django.http import JsonResponse
-from django.middleware.csrf import get_token
 
 
 def login_user(request):
@@ -74,25 +69,25 @@ def notes(request,id):
     return JsonResponse({'status': 'success', 'data': serialized_notes})
 
 
-@login_required
+
 def create_note(request):
     if request.method == 'POST':
-        form = NoteForm(request.POST)
-        if form.is_valid():
-            note = form.save(commit=False)
-            note.user = request.user
-            content = note.content
-            if len(content) >= 404:
-                return HttpResponseBadRequest("Content is too long. Maximum length is 404 characters.")
-            note.save()
-            return redirect('/notes/')
+        data = json.loads(request.body)
+
+        title = data.get('title')
+        content = data.get('content')
+        category = data.get('category')
+        user_id = data.get('user_id')
+        user = User.objects.get(pk=user_id)
+
+        data1 = Note.objects.create(title=title,content=content,category=category, user = user )
+        data1.save()
+        return JsonResponse({'status': 'success'})
     else:
         form = NoteForm()
 
-    context = {
-        'form': form,
-    }
-    return render(request, 'create_note.html', context)
+    return render(request, 'announcement/create_announcement.html', {'form': form})
+
 
 
 @login_required
